@@ -12,6 +12,7 @@ function getVersion() {
   }
 }
 
+
 console.log(getVersion())
 
 if (isiOS() == false) {
