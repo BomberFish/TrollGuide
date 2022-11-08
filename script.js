@@ -17,19 +17,15 @@ function getVersion() {
         const extract = navigator.userAgent.match(/OS (\d+)_(\d+)_?(\d+)?/);
         return `${parseInt(extract[1] || 0, 10)}${parseInt(extract[2] || 0, 10)}${parseInt(extract[3] || 0, 10)}`
     } else {
-        return null; // or [0,0,0]
+        return null
     }
 }
 
 function getCompat() {
     if (isiOS() == true && (getVersion() > 1400 || getVersion() < 1560)) {
         return true
-    } else if (isiOS() == true && getVersion() == 1560) {
-        if (check156Compat() == true) {
-            return true
-        } else {
-          return false
-        }
+    } else if (isiOS() == true && getVersion() == 1560 && check156Compat() == true) {
+        return true
     } else {
         return false
     }
