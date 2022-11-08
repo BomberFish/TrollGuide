@@ -1,12 +1,14 @@
 function isiOS() {
     const ua = navigator.userAgent;
-    return ua.indexOf("iPhone") > 0 || ua.indexOf("iPad") > 0 || ua.indexOf("iPhone") > 0;
+    return ua.indexOf("iPhone") > 0 || ua.indexOf("iPad") > 0 || ua.indexOf("iPod") > 0;
 }
 
 function check156Compat() {
     const ua = navigator.userAgent;
     if (ua.indexOf("19G69") > 0 || ua.indexOf("19G71") > 0) {
         return false;
+    } else {
+        return true;
     }
 }
 
