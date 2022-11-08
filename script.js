@@ -12,6 +12,8 @@ function getVersion() {
   }
 }
 
+console.log(getVersion())
+
 if (isiOS() == false) {
   document.getElementById("get").innerHTML="incompatible"
   document.getElementById("get").disabled="true"
