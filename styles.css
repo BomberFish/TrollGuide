@@ -1,0 +1,49 @@
+:root {
+  --gray1: rgb(142,142,147);
+  --gray2: rgb(174,174,178);
+  --gray3: rgb(199,199,204);
+  --gray4: rgb(209,209,214);
+  --gray5: rgb(229,229,234);
+  --gray6: rgb(242,242,247);
+  --red: rgb(255,59,48);
+  --green: rgb(52,199,89);
+  --blue: rgb(0,122,255);
+}
+
+body {
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji';
+  background-color: rgb(242,242,247);
+  color: #000; 
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --gray2: rgb(99,99,102);
+    --gray3: rgb(72,72,74);
+    --gray4: rgb(58,58,60);
+    --gray5: rgb(44,44,46);
+    --gray6: rgb(28,28,30);
+    --red: rgb(255,69,58);
+    --green: rgb(52,209,88);
+    --blue: rgb(10,132,255);
+  }
+
+  body {
+    background-color: var(--gray6);
+    color: #fff;
+  }
+}
+
+button {
+  background-color: var(--blue);
+  appearance: none;
+  border: none;
+  width: 4em;
+  border-radius: 1em;
+  color: rgb(255,255,255);
+  padding: 0.4em 0.8em;
+  font-size: 1.1em;
+  text-transform: uppercase;
+  font-weight: 800;
+  transition: background 0.35s cubic-bezier(0.4,0,0.2,0), width 0.28s cubic-bezier(0.4,0,0.2,0);
+}
