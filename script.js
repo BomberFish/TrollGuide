@@ -12,10 +12,20 @@ function getVersion() {
   }
 }
 
+function getCompat() {
+  if (isiOS() == true && (getVersion() > 1400 || getVersion() < 1560)) {
+        return true
+  } else if (isiOS() == true && getVersion() == 1560) {
+    // TODO: check build number
+  } else {
+    return false
+  }
+}
 
-console.log(getVersion())
 
-if (isiOS() == false) {
+console.log(getCompat())
+
+if (getCompat() == false) {
   document.getElementById("get").innerHTML="incompatible"
   document.getElementById("get").disabled="true"
   document.getElementById("get").style.width="10em"
