@@ -53,6 +53,29 @@ function getCompat() {
     }
 }
 
+function checkra1n() {
+    if (getVersion() < 1482 && getVersion() > 1400) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function checkRamdisk() {
+    if(checkBetaCompat() == true) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function check155Compat() {
+    if(getVersion() < 1551 && betaCompat() == true) {
+        return true;
+    } else {
+        return false;
+    }
+}
 
 console.log("isiOS() returns", isiOS())
 console.log("getVersion() returns", getVersion())
@@ -60,18 +83,28 @@ console.log("versionCompat() returns", versionCompat())
 console.log("betaCompat() returns", betaCompat())
 console.log("checkBetaCompat() returns", checkBetaCompat())
 console.log("getCompat() returns", getCompat())
+console.log("checkRamdisk() returns", checkRamdisk())
+console.log("checkra1n() returns", checkra1n())
 
 if (getCompat() == false) {
     document.getElementById("get").innerHTML = "incompatible"
     document.getElementById("get").disabled = "true"
     document.getElementById("get").style.width = "9em"
     document.getElementById("get").style.background = "var(--gray1)"
+} else if(checkRamdisk() == true) {
+    document.getElementById("ramdisk").style.display = "block"
+} else if(checkra1n() == true) {
+    document.getElementById("checkra1n").style.display = "block"
 }
 
 
 function buttonClick(element) {
     if (element.className == "clicked") {
-        window.location.href = "http://api.jailbreaks.app/troll64e"
+        if(getVersion() > 1499 && check155Compat() == true) {
+            window.location.href = "http://api.jailbreaks.app/troll"
+        } else {
+            window.location.href = "http://api.jailbreaks.app/troll64e"
+        }
     }
     element.style.background = "var(--green)"
     element.style.width = "6em"

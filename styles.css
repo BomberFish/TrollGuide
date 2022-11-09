@@ -8,6 +8,8 @@
   --red: rgb(255,59,48);
   --green: rgb(52,199,89);
   --blue: rgb(0,122,255);
+  --yellow: rgb(255,204,0);
+  --orange: rgb(255,149,0);
 }
 
 body {
@@ -26,6 +28,8 @@ body {
     --red: rgb(255,69,58);
     --green: rgb(52,209,88);
     --blue: rgb(10,132,255);
+    --yellow: rgb(255,214,10);
+    --orange: rgb(255,159,10);
   }
 
   body {
@@ -54,7 +58,7 @@ body {
   font-size: 1rem;
   position: absolute;
   right: 20px;
-  top: 130px;
+  top: 110px;
   background-image: url("./square.and.arrow.up@2x.png");
   background-position: center;
   background-size: 1rem;
@@ -83,6 +87,11 @@ body {
   font-weight: 800;
   text-align: center;
   transition: background 0.35s cubic-bezier(0.4,0,0.2,0), width 0.28s cubic-bezier(0.4,0,0.2,0);
+}
+
+.warning {
+  color: var(--orange);
+  display: none;
 }
 
 #container {
