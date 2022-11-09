@@ -39,14 +39,15 @@ body {
 }
 
 .title {
-  font-weight: 600
+  font-weight: 600;
+  font-size: 5vw
 }
 
 .subtitle {
   margin-block: none!important;
   display: inline;
   font-weight: 400;
-  font-size: 1.1rem;
+  font-size: 2vw;
   color: var(--gray1)
 }
 
@@ -57,8 +58,8 @@ body {
   color: var(--blue);
   font-size: 1rem;
   position: absolute;
-  right: 20px;
-  top: 110px;
+  right: 1.75%;
+  top: 22.5%;
   background-image: url("./square.and.arrow.up@2x.png");
   background-position: center;
   background-size: 1rem;
@@ -78,11 +79,11 @@ body {
   background-color: var(--blue);
   appearance: none;
   border: none;
-  width: 4em;
+  width: 9vw;
   border-radius: 1em;
   color: rgb(255,255,255);
   padding: 0.4em 0.8em;
-  font-size: 1.1em;
+  font-size: 2.5vw;
   text-transform: uppercase;
   font-weight: 800;
   text-align: center;

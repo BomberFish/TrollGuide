@@ -67,7 +67,7 @@ console.log("check155Compat() returns", check155Compat())
 if (getCompat() == false) {
     document.getElementById("get").innerHTML = "incompatible"
     document.getElementById("get").disabled = "true"
-    document.getElementById("get").style.width = "9em"
+    document.getElementById("get").style.width = "25vw"
     document.getElementById("get").style.background = "var(--gray1)"
 } 
 
@@ -95,7 +95,7 @@ function buttonClick(element) {
         }
     }
     element.style.background = "var(--green)"
-    element.style.width = "6em"
+    element.style.width = "16vw"
     element.innerHTML = "Install"
     element.classList.add("clicked");
 }

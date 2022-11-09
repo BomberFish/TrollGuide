@@ -10,15 +10,15 @@
     <meta name="theme-color" content="var(--gray6)">
 </head>
 
-<body>
-    <div id="container" style="height: 150px; width: 100%">
-        <img src="trollstore.png" width="150px" height="150px" style="display: inline; float: left">
-        <div style="position: absolute; top: 20px; left: 190px;">
+<body style="overflow-y:scroll">
+    <div id="container" style="height: 40%; width: 100%">
+        <img src="trollstore.png" width="20%" height="100%" style="display: inline-flex; ">
+        <div style="margin-left: 0%; margin-top: 1%; display: inline-block; position:absolute">
             <h1 class="title" style="display: inline;">TrollStore</h1><br>
-            <h5 class="subtitle">Install IPAs without revokes</h5>&nbsp;&nbsp;&nbsp;&nbsp;
-            <button id="get" style="position: absolute; top: 80px; left: -5px" onclick='buttonClick(document.getElementById("get"))'>Get</button> 
-        </div><button id="share"></button>
-        <div style="position: absolute; top: 170px; left: 15px;">
+            <h5 class="subtitle">Install IPAs without revokes</h5>&nbsp;&nbsp;&nbsp;&nbsp;<br>
+            <button id="get" style="margin-top: 5%" onclick='buttonClick(document.getElementById("get"))'>Get</button>
+        </div></div><button id="share"></button>
+        <div style="margin-left: 2%;">
             <p id="notidevice" class="error">Visit this page on your iPhone, iPad, or iPod touch to install.</p>
             <p id="155" class="warning">Warning: Release Candidate/Final build (19F77) are not supported!</p>
             <p id="156" class="warning">Warning: Release Candidate 1 (19G69) and Release Candidate 2/Final build (19G71) are not supported!</p>
@@ -63,24 +63,25 @@
             <p>You might also need the platform-application entitlement in order for these to work properly:</p>
             <code>&lt;key&gt;platform-application&lt;/key&gt;
               &lt;true/&gt;</code>
-            <p>Please note that the platform-application entitlement causes side effects such as some parts of the sandbox becoming tighter, so you may need additional private entitlements to circumvent that. (For example afterwards you need an exception entitlement for every single IOKit user client class you want to access).</p>
+            <p>Please note that the platform-application entitlement causes side effects such as some parts of the sandbox becoming tighter, so you may need additional private entitlements to circumvent that. (For example afterwards you need an exception
+                entitlement for every single IOKit user client class you want to access).</p>
             <h4>Root Helpers</h4>
             <p>When your app is not sandboxed, you can spawn other binaries using posix_spawn, you can also spawn binaries as root with the following entitlement:</p>
             <code>&lt;key&gt;com.apple.private.persona-mgmt&lt;/key&gt;
               &lt;true/&gt;</code>
-              <p>You can also add your own binaries into your app bundle.</p>
-              <p>Afterwards you can use the <a href="https://github.com/opa334/TrollStore/blob/main/Shared/TSUtil.m#L74">spawnRoot function in TSUtil.m</a> to spawn the binary as root.</p>
-              <h4>Things that are not possible using TrollStore:</h4>
-              <ul type="circle">
+            <p>You can also add your own binaries into your app bundle.</p>
+            <p>Afterwards you can use the <a href="https://github.com/opa334/TrollStore/blob/main/Shared/TSUtil.m#L74">spawnRoot function in TSUtil.m</a> to spawn the binary as root.</p>
+            <h4>Things that are not possible using TrollStore:</h4>
+            <ul type="circle">
                 <li>Getting proper platformization / <code>CS_PLATFORMIZED</code></li>
                 <li>Spawning a launch daemon (Would need <code>CS_PLATFORMIZED</code>)</li>
                 <li>Injecting a tweak into a system process (Would need <code>CS_PLATFORMIZED</code>, a userland PAC bypass and a PMAP trust level bypass)</li>
-              </ul>
-              <h2>Credits and Further Reading</h2>
-              <a href="https://github.com/opa334/TrollStore">TrollStore repo</a> for the README<br><br>
-              <a href="https://twitter.com/LinusHenze">@LinusHenze</a> - Found the CoreTrust bug that allows TrollStore to work.<br><br>
-              <a href="https://youtu.be/NIyKNjNNB5Q?t=3046">Fugu15 Presentation</a><br><br>
-              <a href="https://worthdoingbadly.com/coretrust/">Write-Up on the CoreTrust bug with more information.</a><br><br>
+            </ul>
+            <h2>Credits and Further Reading</h2>
+            <a href="https://github.com/opa334/TrollStore">TrollStore repo</a> for the README<br><br>
+            <a href="https://twitter.com/LinusHenze">@LinusHenze</a> - Found the CoreTrust bug that allows TrollStore to work.<br><br>
+            <a href="https://youtu.be/NIyKNjNNB5Q?t=3046">Fugu15 Presentation</a><br><br>
+            <a href="https://worthdoingbadly.com/coretrust/">Write-Up on the CoreTrust bug with more information.</a><br><br>
         </div>
 </body>
 <script src="script.js"></script>
