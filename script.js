@@ -3,12 +3,12 @@ function isiOS() {
     return ua.indexOf("iPhone") > 0 || ua.indexOf("iPad") > 0 || ua.indexOf("iPod") > 0;
 }
 
-function check156Compat() {
+function checkBetaCompat() {
     const ua = navigator.userAgent;
-    if (ua.indexOf("19G69") > 0 || ua.indexOf("19G71") > 0) {
-        return false;
-    } else {
+    if (ua.indexOf("19G5027e") > 0 || ua.indexOf("19G5037d") > 0 || ua.indexOf("19G5046d") > 0 || ua.indexOf("19G5056c") > 0 || ua.indexOf("19G5063a") > 0 || ua.indexOf("19E5209h") > 0 || ua.indexOf("19E5219e") > 0 || ua.indexOf("19E5225g") > 0 || ua.indexOf("19E5235a") > 0) {
         return true;
+    } else {
+        return false;
     }
 }
 
@@ -24,7 +24,7 @@ function getVersion() {
 function getCompat() {
     if (isiOS() == true && (getVersion() > 1400 || getVersion() < 1560)) {
         return true
-    } else if (isiOS() == true && getVersion() == 1560 && check156Compat() == true) {
+    } else if (isiOS() == true && (getVersion() == 1560 || getVersion() == 1550) && check156Compat() == true) {
         return true
     } else {
         return false
@@ -32,7 +32,10 @@ function getCompat() {
 }
 
 
-console.log(getCompat())
+console.log("isiOS() returns", isiOS())
+console.log("getVersion() returns", getVersion())
+console.log("check156Compat() returns", check156Compat())
+console.log("getCompat() returns", getCompat())
 
 if (getCompat() == false) {
     document.getElementById("get").innerHTML = "incompatible"
