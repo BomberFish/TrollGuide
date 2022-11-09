@@ -102,7 +102,7 @@ body {
 .error {
   display: none;
   font-weight: 700;
-  font-size: 1.05rem
+  font-size: 4vw;
 }
 
 #container {
