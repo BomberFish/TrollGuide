@@ -11,7 +11,7 @@
 }
 
 body {
-  font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji';
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, 'SF', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji';
   background-color: var(--gray6);
   color: #000; 
 }
@@ -74,4 +74,22 @@ code {
   background-color: rgba(255,255,255,0.25);
   border-radius: 6px;
   font-size: 0.9em
+}
+
+@font-face {
+	font-family:'SF';
+	font-style:normal;
+	font-weight:400;
+	src:local('SF Pro'), url("./fonts/SFNS.woff2") format("woff2");
+	/* (C) 2019 Apple Inc. All rights reserved.
+ */
+}
+
+@font-face {
+	font-family:'SFMono';
+	font-style:italic;
+	font-weight:400;
+	src:local('SF Mono'), url("./fonts/SFNSMono.woff2") format("woff2");
+	/* (C) 2019 Apple Inc. All rights reserved.
+ */
 }
