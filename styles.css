@@ -55,7 +55,7 @@ body {
   position: absolute;
   right: 20px;
   top: 110px;
-  font-family: "SF Pro Icons", -apple-system, "SF Pro", "SF"
+  font-family: "SF Pro Icons Regular", sans-serif;
 }
 
 #get {
@@ -99,19 +99,18 @@ code {
 
 @font-face {
 	font-family:'SFMono';
-	font-style:italic;
+	font-style:normal;
 	font-weight:400;
 	src:local('SF Mono'), url("./fonts/SFNSMono.woff2") format("woff2");
 	/* (C) 2019 Apple Inc. All rights reserved.
  */
 }
 
-@font-face {
-	font-family:'SF Pro Icons';
-	font-style:normal;
-	font-weight:400;
-	src:url('https://apple.com/wss/fonts/SF-Pro-Icons/v2/sf-pro-icons_regular.eot');
-	src:local('☺'), url("https://apple.com/wss/fonts/SF-Pro-Icons/v2/sf-pro-icons_regular.woff2") format("woff2"), url("https://apple.com/wss/fonts/SF-Pro-Icons/v2/sf-pro-icons_regular.woff") format("woff"), url("https://apple.com/wss/fonts/SF-Pro-Icons/v2/sf-pro-icons_regular.ttf") format("truetype");
-	/* (C) 2019 Apple Inc. All rights reserved.
- */
+@font-face {font-family: "SF Pro Icons Regular";
+  src: url("SFIcons.eot"); /* IE9*/
+  src: url("SFIcons.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+  url("SFIcons.woff2") format("woff2"), /* chrome、firefox */
+  url("SFIcons.woff") format("woff"), /* chrome、firefox */
+  url("SFIcons.ttf") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  url("SFIcons.svg#SF Pro Icons Regular") format("svg"); /* iOS 4.1- */
 }
