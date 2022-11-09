@@ -10,7 +10,7 @@ function isiOS() {
 }
 
 if(isiOS() == false) {
-    document.getElementById("notidevice").style.display="block"
+    document.getElementById("notidevice").style.display="block";
 }
 
 function getVersion() {
