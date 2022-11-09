@@ -97,7 +97,8 @@ body {
   color: var(--red);
 }
 
-.warning {
+.warning,
+.error {
   display: none;
   font-weight: 700;
 }
