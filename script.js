@@ -9,6 +9,20 @@ function isiOS() {
     return ua.indexOf("iPhone") > 0 || ua.indexOf("iPad") > 0 || ua.indexOf("iPod touch") > 0;
 }
 
+function isAppleSilicon() {
+    var w = document.createElement("canvas").getContext("webgl");
+    var d = w.getExtension('WEBGL_debug_renderer_info');
+    var g = d && w.getParameter(d.UNMASKED_RENDERER_WEBGL) || "";
+    if (g.match(/Apple/) && !g.match(/Apple GPU/)) {
+        console.log("Probably an M1 Mac");
+        return true;
+    } else {
+        console.log("Not an M1 Mac");
+        console.log("navigator.platform returns", navigator.platform)
+        return false;
+    }
+}
+
 if(isiOS() == false) {
     document.getElementById("notidevice").style.display="block";
 }
@@ -43,7 +57,9 @@ function getCompat() {
         return true
     } else if (isiOS() == true && betaCompat() == true) {
         return true
-    } else {
+    } else if(isiOS() == false && isAppleSilicon() == true) {
+        return true
+    }else {
         return false
     }
 }
@@ -63,6 +79,7 @@ console.log("versionCompat() returns", versionCompat())
 console.log("betaCompat() returns", betaCompat())
 console.log("getCompat() returns", getCompat())
 console.log("check155Compat() returns", check155Compat())
+console.log("isAppleSilicon() returns", isAppleSilicon())
 
 if (getCompat() == false) {
     document.getElementById("get").innerHTML = "incompatible"
@@ -83,6 +100,10 @@ if (getVersion() == 1560) {
     document.getElementById("156").style.display = "block"
 } else if (getVersion() == 1550) {
     document.getElementById("155").style.display = "block"
+}
+
+if(isAppleSilicon() == true) {
+    document.getElementById("m1").style.display = "block"
 }
 
 
