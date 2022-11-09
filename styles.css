@@ -55,7 +55,19 @@ body {
   position: absolute;
   right: 20px;
   top: 110px;
-  font-family: "SF Pro Icons Regular", sans-serif;
+  background-image: url("./square.and.arrow.up@2x.png");
+  background-position: center;
+  background-size: 1rem;
+  background-repeat: no-repeat;
+  width: 1.25rem;
+  height: 1.25rem;
+  filter: brightness(0) saturate(100%) invert(28%) sepia(81%) saturate(2278%) hue-rotate(200deg) brightness(102%) contrast(107%);
+}
+
+@media (prefers-color-scheme: dark) {
+  #share {
+    filter: brightness(0) saturate(100%) invert(33%) sepia(92%) saturate(1553%) hue-rotate(196deg) brightness(101%) contrast(102%);
+  }
 }
 
 #get {
@@ -104,13 +116,4 @@ code {
 	src:local('SF Mono'), url("./fonts/SFNSMono.woff2") format("woff2");
 	/* (C) 2019 Apple Inc. All rights reserved.
  */
-}
-
-@font-face {font-family: "SF Pro Icons Regular";
-  src: url("SFIcons.eot"); /* IE9*/
-  src: url("SFIcons.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
-  url("SFIcons.woff2") format("woff2"), /* chrome、firefox */
-  url("SFIcons.woff") format("woff"), /* chrome、firefox */
-  url("SFIcons.ttf") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
-  url("SFIcons.svg#SF Pro Icons Regular") format("svg"); /* iOS 4.1- */
 }
