@@ -60,7 +60,7 @@ body {
   font-size: 3vw;
   position: absolute;
   right: 1.75%;
-  top: 7.5%;
+  top: 10%;
   background-image: url("./square.and.arrow.up@2x.png");
   background-position: center;
   background-size: 3vw;
@@ -80,11 +80,11 @@ body {
   background-color: var(--blue);
   appearance: none;
   border: none;
-  width: 9vw;
+  width: 14vw;
   border-radius: 1em;
   color: rgb(255,255,255);
   padding: 0.4em 0.8em;
-  font-size: 2.5vw;
+  font-size: 3.5vw;
   text-transform: uppercase;
   font-weight: 800;
   text-align: center;
