@@ -1,3 +1,9 @@
+const shareData = {
+    title: 'TrollGuide',
+    text: 'Install TrollStore',
+    url: 'https://bomberfish.ca/TrollGuide'
+}
+
 function isiOS() {
     const ua = navigator.userAgent;
     return ua.indexOf("iPhone") > 0 || ua.indexOf("iPad") > 0 || ua.indexOf("iPod") > 0;
@@ -72,3 +78,7 @@ function buttonClick(element) {
     element.innerHTML = "Install"
     element.classList.add("clicked");
 }
+
+document.getElementById("share").addEventListener('click', async () => {
+        await navigator.share(shareData);
+});

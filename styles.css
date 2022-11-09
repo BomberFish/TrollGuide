@@ -34,11 +34,11 @@ body {
   }
 }
 
-h1 {
+.title {
   font-weight: 500
 }
 
-h5 {
+.subtitle {
   margin-block: none!important;
   display: inline;
   font-weight: 400;
@@ -46,7 +46,19 @@ h5 {
   color: var(--gray1)
 }
 
-button {
+#share {
+  appearance: none;
+  background: none;
+  border: none;
+  color: var(--blue);
+  font-size: 1rem;
+  position: absolute;
+  right: 20px;
+  top: 110px;
+  font-family: "SF Pro Icons", -apple-system, "SF Pro", "SF"
+}
+
+#get {
   background-color: var(--blue);
   appearance: none;
   border: none;
@@ -90,6 +102,16 @@ code {
 	font-style:italic;
 	font-weight:400;
 	src:local('SF Mono'), url("./fonts/SFNSMono.woff2") format("woff2");
+	/* (C) 2019 Apple Inc. All rights reserved.
+ */
+}
+
+@font-face {
+	font-family:'SF Pro Icons';
+	font-style:normal;
+	font-weight:400;
+	src:url('https://apple.com/wss/fonts/SF-Pro-Icons/v2/sf-pro-icons_regular.eot');
+	src:local('☺'), url("https://apple.com/wss/fonts/SF-Pro-Icons/v2/sf-pro-icons_regular.woff2") format("woff2"), url("https://apple.com/wss/fonts/SF-Pro-Icons/v2/sf-pro-icons_regular.woff") format("woff"), url("https://apple.com/wss/fonts/SF-Pro-Icons/v2/sf-pro-icons_regular.ttf") format("truetype");
 	/* (C) 2019 Apple Inc. All rights reserved.
  */
 }
