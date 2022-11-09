@@ -50,6 +50,8 @@ function getCompat() {
 
 console.log("isiOS() returns", isiOS())
 console.log("getVersion() returns", getVersion())
+console.log("versionCompat() returns", versionCompat())
+console.log("betaCompat() returns", betaCompat())
 console.log("checkBetaCompat() returns", checkBetaCompat())
 console.log("getCompat() returns", getCompat())
 
