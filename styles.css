@@ -40,15 +40,16 @@ body {
 
 .title {
   font-weight: 600;
-  font-size: 5vw
+  font-size: 6vw
 }
 
 .subtitle {
-  margin-block: none!important;
+  margin-block: -0.5vw!important;
+  margin: 2vw 0px!important;
   display: inline;
   font-weight: 400;
   font-size: 2vw;
-  color: var(--gray1)
+  color: var(--gray1);
 }
 
 #share {
@@ -59,7 +60,7 @@ body {
   font-size: 3vw;
   position: absolute;
   right: 1.75%;
-  top: 8.5%;
+  top: 7.5%;
   background-image: url("./square.and.arrow.up@2x.png");
   background-position: center;
   background-size: 3vw;
