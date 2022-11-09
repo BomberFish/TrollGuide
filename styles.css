@@ -91,12 +91,15 @@ body {
 
 .warning {
   color: var(--orange);
-  display: none;
 }
 
 .error {
   color: var(--red);
+}
+
+.warning {
   display: none;
+  font-weight: 700;
 }
 
 #container {
