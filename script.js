@@ -23,6 +23,12 @@ function isAppleSilicon() {
     }
 }
 
+function isMobile() {
+    const ua = navigator.userAgent;
+    // Not accounting for mobile linux, but who uses that???
+    return ua.indexOf("iPhone") > 0 || ua.indexOf("iPad") > 0 || ua.indexOf("iPod touch") > 0 || ua.indexOf("Android") > 0;
+}
+
 if(isiOS() == false) {
     document.getElementById("notidevice").style.display="block";
 }
@@ -80,6 +86,7 @@ console.log("betaCompat() returns", betaCompat())
 console.log("getCompat() returns", getCompat())
 console.log("check155Compat() returns", check155Compat())
 console.log("isAppleSilicon() returns", isAppleSilicon())
+console.log("isMobile() returns", isMobile())
 
 if (getCompat() == false) {
     document.getElementById("get").innerHTML = "incompatible"
@@ -87,6 +94,10 @@ if (getCompat() == false) {
     document.getElementById("get").style.width = "32vw"
     document.getElementById("get").style.background = "var(--gray1)"
 } 
+
+if (isMobile() == false) {
+    document.querySelector("html").className = "desktop"
+}
 
 if(getVersion() == 1560) {
     document.getElementById("ramdisk").style.display = "block"

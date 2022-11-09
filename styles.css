@@ -1,155 +1,161 @@
 :root {
-  --gray1: rgb(142,142,147);
-  --gray2: rgb(174,174,178);
-  --gray3: rgb(199,199,204);
-  --gray4: rgb(209,209,214);
-  --gray5: rgb(229,229,234);
-  --gray6: rgb(242,242,247);
-  --red: rgb(255,59,48);
-  --green: rgb(52,199,89);
-  --blue: rgb(0,122,255);
-  --yellow: rgb(255,204,0);
-  --orange: rgb(255,149,0);
+    --gray1: rgb(142, 142, 147);
+    --gray2: rgb(174, 174, 178);
+    --gray3: rgb(199, 199, 204);
+    --gray4: rgb(209, 209, 214);
+    --gray5: rgb(229, 229, 234);
+    --gray6: rgb(242, 242, 247);
+    --red: rgb(255, 59, 48);
+    --green: rgb(52, 199, 89);
+    --blue: rgb(0, 122, 255);
+    --yellow: rgb(255, 204, 0);
+    --orange: rgb(255, 149, 0);
 }
 
 body {
-  font-family: -apple-system, system-ui, BlinkMacSystemFont, 'SF', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji';
-  background-color: var(--gray6);
-  color: #000; 
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, 'SF', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji';
+    background-color: var(--gray6);
+    color: #000;
+    overflow-y: scroll;
+}
+
+html.desktop {
+    /* width: 50%!important; */
+    scale: 0.5;
+    margin-top: -165%
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --gray2: rgb(99,99,102);
-    --gray3: rgb(72,72,74);
-    --gray4: rgb(58,58,60);
-    --gray5: rgb(44,44,46);
-    --gray6: rgb(28,28,30);
-    --red: rgb(255,69,58);
-    --green: rgb(52,209,88);
-    --blue: rgb(10,132,255);
-    --yellow: rgb(255,214,10);
-    --orange: rgb(255,159,10);
-  }
-
-  body {
-    background-color: var(--gray6);
-    color: #fff;
-  }
+     :root {
+        --gray2: rgb(99, 99, 102);
+        --gray3: rgb(72, 72, 74);
+        --gray4: rgb(58, 58, 60);
+        --gray5: rgb(44, 44, 46);
+        --gray6: rgb(28, 28, 30);
+        --red: rgb(255, 69, 58);
+        --green: rgb(52, 209, 88);
+        --blue: rgb(10, 132, 255);
+        --yellow: rgb(255, 214, 10);
+        --orange: rgb(255, 159, 10);
+    }
+    body {
+        background-color: var(--gray6);
+        color: #fff;
+    }
 }
 
 .title {
-  font-weight: 600;
-  font-size: 6vw
+    font-weight: 600;
+    font-size: 6vw
 }
 
 .subtitle {
-  margin-block: -0.5vw!important;
-  margin: 2vw 0px!important;
-  display: inline;
-  font-weight: 400;
-  font-size: 2vw;
-  color: var(--gray1);
+    margin-block: -0.5vw!important;
+    margin: 2vw 0px!important;
+    display: inline;
+    font-weight: 400;
+    font-size: 2vw;
+    color: var(--gray1);
 }
 
 #share {
-  appearance: none;
-  background: none;
-  border: none;
-  color: var(--blue);
-  font-size: 3vw;
-  position: absolute;
-  right: 1.75%;
-  top: 10%;
-  background-image: url("./square.and.arrow.up@2x.png");
-  background-position: center;
-  background-size: 3vw;
-  background-repeat: no-repeat;
-  width: 6.5vw;
-  height: 6.5vw;
-  filter: brightness(0) saturate(100%) invert(28%) sepia(81%) saturate(2278%) hue-rotate(200deg) brightness(102%) contrast(107%);
+    appearance: none;
+    background: none;
+    border: none;
+    color: var(--blue);
+    font-size: 3vw;
+    position: absolute;
+    right: 1.75%;
+    top: 10%;
+    background-image: url("./square.and.arrow.up@2x.png");
+    background-position: center;
+    background-size: 3vw;
+    background-repeat: no-repeat;
+    width: 6.5vw;
+    height: 6.5vw;
+    filter: brightness(0) saturate(100%) invert(28%) sepia(81%) saturate(2278%) hue-rotate(200deg) brightness(102%) contrast(107%);
 }
 
 @media (prefers-color-scheme: dark) {
-  #share {
-    filter: brightness(0) saturate(100%) invert(33%) sepia(92%) saturate(1553%) hue-rotate(196deg) brightness(101%) contrast(102%);
-  }
+    #share {
+        filter: brightness(0) saturate(100%) invert(33%) sepia(92%) saturate(1553%) hue-rotate(196deg) brightness(101%) contrast(102%);
+    }
 }
 
 #get {
-  background-color: var(--blue);
-  appearance: none;
-  border: none;
-  width: 14vw;
-  border-radius: 1em;
-  color: rgb(255,255,255);
-  padding: 0.4em 0.8em;
-  font-size: 3.5vw;
-  text-transform: uppercase;
-  font-weight: 800;
-  text-align: center;
-  transition: background 0.35s cubic-bezier(0.4,0,0.2,0), width 0.28s cubic-bezier(0.4,0,0.2,0);
+    background-color: var(--blue);
+    appearance: none;
+    border: none;
+    width: 14vw;
+    border-radius: 1em;
+    color: rgb(255, 255, 255);
+    padding: 0.4em 0.8em;
+    font-size: 3.5vw;
+    text-transform: uppercase;
+    font-weight: 800;
+    text-align: center;
+    transition: background 0.35s cubic-bezier(0.4, 0, 0.2, 0), width 0.28s cubic-bezier(0.4, 0, 0.2, 0);
 }
 
 .warning {
-  color: var(--orange);
+    color: var(--orange);
 }
 
 .error {
-  color: var(--red);
+    color: var(--red);
 }
 
 .warning,
 .error {
-  display: none;
-  font-weight: 700;
-  font-size: 4vw;
+    display: none;
+    font-weight: 700;
+    font-size: 4vw;
 }
 
 #container {
-  border-bottom: 0.75px var(--gray3) solid;
+    border-bottom: 0.75px var(--gray3) solid;
 }
 
 a {
-  color: var(--blue);
-  text-decoration: none;
+    color: var(--blue);
+    text-decoration: none;
 }
 
 p,
 li {
-  font-size: 3vw
+    font-size: 3vw
 }
 
 h2 {
-  font-size: 5.5vw
+    font-size: 5.5vw
 }
 
 h4 {
-  font-size: 4vw
+    font-size: 4vw
 }
 
 code {
-  font-family: ui-monospace, 'SF Mono', Menlo, Monaco, monospace;
-  padding: 0.25vw 1vw;
-  background-color: rgba(255,255,255,0.25);
-  border-radius: 6px;
-  font-size: 2.9vw
+    font-family: ui-monospace, 'SF Mono', Menlo, Monaco, monospace;
+    padding: 0.25vw 1vw;
+    background-color: rgba(255, 255, 255, 0.25);
+    border-radius: 6px;
+    font-size: 2.9vw
 }
 
 @font-face {
-	font-family:'SF';
-	font-style:normal;
-	font-weight:400;
-	src:local('SF Pro'), url("./fonts/SFNS.woff2") format("woff2");
-	/* (C) 2019 Apple Inc. All rights reserved.
+    font-family: 'SF';
+    font-style: normal;
+    font-weight: 400;
+    src: local('SF Pro'), url("./fonts/SFNS.woff2") format("woff2");
+    /* (C) 2019 Apple Inc. All rights reserved.
  */
 }
 
 @font-face {
-	font-family:'SFMono';
-	font-style:normal;
-	font-weight:400;
-	src:local('SF Mono'), url("./fonts/SFNSMono.woff2") format("woff2");
-	/* (C) 2019 Apple Inc. All rights reserved.
+    font-family: 'SFMono';
+    font-style: normal;
+    font-weight: 400;
+    src: local('SF Mono'), url("./fonts/SFNSMono.woff2") format("woff2");
+    /* (C) 2019 Apple Inc. All rights reserved.
  */
 }
