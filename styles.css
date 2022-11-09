@@ -89,7 +89,8 @@ body {
 }
 
 a {
-  color: var(--blue)
+  color: var(--blue);
+  text-decoration: none;
 }
 
 code {
