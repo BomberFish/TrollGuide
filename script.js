@@ -22,7 +22,7 @@ function getVersion() {
 }
 
 function versionCompat() {
-    if(getVersion() > 1400 || getVersion() < 1560) {
+    if(getVersion() > 1400 && getVersion() < 1560) {
         return true;
     } else {
         return false
