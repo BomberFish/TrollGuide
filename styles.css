@@ -94,6 +94,11 @@ body {
   display: none;
 }
 
+.error {
+  color: var(--red);
+  display: none;
+}
+
 #container {
   border-bottom: 0.75px var(--gray3) solid;
 }
