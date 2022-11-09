@@ -64,7 +64,7 @@ console.log("getCompat() returns", getCompat())
 if (getCompat() == false) {
     document.getElementById("get").innerHTML = "incompatible"
     document.getElementById("get").disabled = "true"
-    document.getElementById("get").style.width = "10em"
+    document.getElementById("get").style.width = "9em"
     document.getElementById("get").style.background = "var(--gray1)"
 }
 
