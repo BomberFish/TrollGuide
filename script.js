@@ -62,7 +62,7 @@ function checkra1n() {
 }
 
 function checkRamdisk() {
-    if(checkBetaCompat() == true) {
+    if(checkBetaCompat() == true && getVersion() == 1560) {
         return true;
     } else {
         return false;
@@ -85,6 +85,7 @@ console.log("checkBetaCompat() returns", checkBetaCompat())
 console.log("getCompat() returns", getCompat())
 console.log("checkRamdisk() returns", checkRamdisk())
 console.log("checkra1n() returns", checkra1n())
+console.log("check155Compat() returns", check155Compat())
 
 if (getCompat() == false) {
     document.getElementById("get").innerHTML = "incompatible"
