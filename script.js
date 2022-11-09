@@ -21,10 +21,26 @@ function getVersion() {
     }
 }
 
+function versionCompat() {
+    if(getVersion() > 1400 || getVersion() < 1560) {
+        return true;
+    } else {
+        return false
+    }
+}
+
+function betaCompat() {
+    if(getVersion() == 1560 || getVersion() == 1550) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 function getCompat() {
-    if (isiOS() == true && (getVersion() > 1400 || getVersion() < 1560)) {
+    if (isiOS() == true && versionCompat() == true) {
         return true
-    } else if (isiOS() == true && (getVersion() == 1560 || getVersion() == 1550) && checkBetaCompat() == true) {
+    } else if (isiOS() == true && betaCompat() == true && checkBetaCompat() == true) {
         return true
     } else {
         return false
