@@ -1,16 +1,83 @@
 <!DOCTYPE html>
-<html lang="en" style="width: 100%; height: 100%">
+<html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
-  <title>TrollStore</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>TrollStore</title>
+    <meta name="theme-color" content="var(--gray6)">
 </head>
+
 <body>
-  <div id="container" style="height: 130px;">
-    <img src="trollstore.png" width="100px" height="100px" style="display: inline; float: left"> <div style="position: fixed; top: 40px; left: 120px"><h1 style="display: inline;">TrollStore</h1>&nbsp;&nbsp;&nbsp;&nbsp;
-  <button id="get" onclick='buttonClick(document.getElementById("get"))'>Get</button></div>
+    <div id="container" style="height: 130px;">
+        <img src="trollstore.png" width="100px" height="100px" style="display: inline; float: left">
+        <div style="position: absolute; top: 15px; left: 120px;">
+            <h1 style="display: inline;">TrollStore</h1><br>
+            <h5>Install IPAs without revokes</h5>&nbsp;&nbsp;&nbsp;&nbsp;<br><br>
+            <button id="get" onclick='buttonClick(document.getElementById("get"))'>Get</button>
+        </div>
+        <div style="position: absolute; top: 150px; left: 15px; right: 20px;">
+            <h2>About TrollStore</h2>
+            <p>TrollStore is a permasigned jailed app that can permanently install any IPA you open in it.</p>
+            <p>It works because of an AMFI/CoreTrust bug where iOS doesn't verify whether or not a root certificate used to sign a binary is legit.</p>
+            <h2>Updating TrollStore</h2>
+            <p>When a new TrollStore update is available, a button to install it will appear at the top in the TrollStore settings. After tapping the button, TrollStore will automatically download the update, install it, and respring.</p>
+            <p>Alternatively (if anything goes wrong), you can download the TrollStore.tar file under Releases and open it in TrollStore, TrollStore will install the update and respring.</p>
+            <h2>Uninstalling an app</h2>
+            <p>Apps installed from TrollStore can only be uninstalled from TrollStore itself, tap an app or swipe it to the right in the 'Apps' tab to delete it.</p>
+            <h2>Persistence Helper</h2>
+            <p>The CoreTrust bug used in TrollStore is only enough to install "System" apps, this is because FrontBoard has an additional security check (it calls libmis) every time before a user app is launched. Unfortunately it is not possible to install
+                new "System" apps that stay through an icon cache reload. Therefore, when iOS reloads the icon cache, all TrollStore installed apps including TrollStore itself will revert back to "User" state and will no longer launch.</p>
+            <p>The only way to work around this is to install a persistence helper into a system app, this helper can then be used to reregister TrollStore and its installed apps as "System" so that they become launchable again, an option for this is available
+                in TrollStore settings.</p>
+            <p>On jailbroken iOS 14 when TrollHelper is used for installation, it is located in /Applications and will persist as a "System" app through icon cache reloads, therefore TrollHelper is used as the persistence helper on iOS 14.</p>
+            <h2>URL Scheme</h2>
+            <p>As of version 1.3, TrollStore replaces the system URL scheme "apple-magnifier" (this is done so "jailbreak" detections can't detect TrollStore like they could if TrollStore had a unique URL scheme). This URL scheme can be used to install applications
+                right from the browser, the format goes as follows:</p>
+            <code>apple-magnifier://install?url=&lt;URL_to_IPA&gt;</code>
+            <p>On devices that don't have TrollStore (1.3+) installed, this will just open the magnifier app.</p>
+            <h2>Features</h2>
+            <p>The binaries inside an IPA can have arbitrary entitlements, fakesign them with ldid and the entitlements you want (<code>ldid -S&lt;path/to/entitlements.plist&gt; &lt;path/to/binary&gt;</code>) and TrollStore will preserve the entitlements
+                when resigning them with the fake root certificate on installation. This gives you a lot of possibilities, some of which are explained below.</p>
+            <h4>Banned entitlements</h4>
+            <p>iOS 15 on A12+ has banned the following three entitlements related to running unsigned code, these are impossible to get without a PPL bypass, apps signed with them will crash on launch.</p>
+            <code>com.apple.private.cs.debugger</code>
+            <p>dynamic-codesigning</p>
+            <p>com.apple.private.skip-library-validation</p>
+            <h4>Unsandboxing</h4>
+            <p>Your app can run unsandboxed using one of the following entitlements:</p>
+            <code>&lt;key&gt;com.apple.private.security.container-required&lt;/key&gt;
+            &lt;false/&gt;</code>
+            <code>&lt;key&gt;com.apple.private.security.no-container&lt;/key&gt;
+              &lt;true/&gt;</code>
+            <code>&lt;key&gt;com.apple.private.security.no-sandbox&lt;/key&gt;
+                &lt;true/&gt;</code>
+            <p>The third one is recommended if you still want a sandbox container for your application.</p>
+            <p>You might also need the platform-application entitlement in order for these to work properly:</p>
+            <code>&lt;key&gt;platform-application&lt;/key&gt;
+              &lt;true/&gt;</code>
+            <p>Please note that the platform-application entitlement causes side effects such as some parts of the sandbox becoming tighter, so you may need additional private entitlements to circumvent that. (For example afterwards you need an exception entitlement for every single IOKit user client class you want to access).</p>
+            <h4>Root Helpers</h4>
+            <p>When your app is not sandboxed, you can spawn other binaries using posix_spawn, you can also spawn binaries as root with the following entitlement:</p>
+            <code>&lt;key&gt;com.apple.private.persona-mgmt&lt;/key&gt;
+              &lt;true/&gt;</code>
+              <p>You can also add your own binaries into your app bundle.</p>
+              <p>Afterwards you can use the <a href="https://github.com/opa334/TrollStore/blob/main/Shared/TSUtil.m#L74">spawnRoot function in TSUtil.m</a> to spawn the binary as root.</p>
+              <h4>Things that are not possible using TrollStore:</h4>
+              <ul type="circle">
+                <li>Getting proper platformization / <code>CS_PLATFORMIZED</code></li>
+                <li>Spawning a launch daemon (Would need <code>CS_PLATFORMIZED</code>)</li>
+                <li>Injecting a tweak into a system process (Would need <code>CS_PLATFORMIZED</code>, a userland PAC bypass and a PMAP trust level bypass)</li>
+              </ul>
+              <h2>Credits and Further Reading</h2>
+              <a href="https://github.com/opa334/TrollStore">TrollStore repo</a> for the README<br><br>
+              <a href="https://twitter.com/LinusHenze">@LinusHenze</a> - Found the CoreTrust bug that allows TrollStore to work.<br><br>
+              <a href="https://youtu.be/NIyKNjNNB5Q?t=3046">Fugu15 Presentation</a><br><br>
+              <a href="https://worthdoingbadly.com/coretrust/">Write-Up on the CoreTrust bug with more information.</a><br><br>
+        </div>
 </body>
 <script src="script.js"></script>
+
 </html>
