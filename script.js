@@ -96,7 +96,7 @@ if (getCompat() == false) {
 } 
 
 if (isMobile() == false) {
-    document.querySelector("html").className = "desktop"
+    document.querySelector("body").className = "desktop"
 }
 
 if(getVersion() == 1560) {

@@ -19,11 +19,10 @@ body {
     overflow-y: scroll;
 }
 
-html.desktop {
-    /* width: 50%!important; */
-    scale: 0.5;
-    margin-top: -150%
-}
+/* body.desktop {
+  margin: 25%;
+  font-size: 3vw
+} */
 
 @media (prefers-color-scheme: dark) {
      :root {
