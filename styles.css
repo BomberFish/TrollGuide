@@ -134,7 +134,7 @@ h4 {
 }
 
 code {
-    font-family: ui-monospace, 'SF Mono', Menlo, Monaco, monospace;
+    font-family: ui-monospace, 'SF Mono', SFMono, Menlo, Monaco, monospace;
     padding: 0.25vw 1vw;
     background-color: rgba(255, 255, 255, 0.25);
     border-radius: 6px;
